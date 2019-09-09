@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Propietario</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+
+    <body>
+        <div class="main-content">
+            {{>header}}
+            <h1>Propietario</h1>
+            <a href="/propietario/profile">Mis Datos</a>
+            <div class="addPropertyForm">
+                <h3>Agregar Inmueble</h3>
+                <form>
+                    <p>Tipo de inmueble:</p>
+                    <select name="realStateType">
+                        <option value="aparment">Apartamento</option>
+                        <option value="house">Casa</option>
+                        <option value="oneBedRoomAparment">Apartaestudio</option>
+                        <option value="store">Local</option>
+                        <option value="countryHouse">Cabaña</option>
+                        <option value="storageArea">Deposito</option>
+                    </select>
+                    <p>Dirección del inmueble</p>
+                    <input type="text">
+                    <p>Ciudad</p>
+                    <input type="text">
+                    <p>País</p>
+                    <input type="text">
+                    <p>Valor mensual del arriendo</p>
+                    <input type="number">
+                    <button>Agregar fotos</button>
+                    <button>agregar</button>
+                </form>  
+            </div>  
+        </div>
+
+        {{>footer}}
+    </body>
+    
+</html>

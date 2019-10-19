@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Registrate en TuInmueble</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        {{>header}}
+          <h1>Completa tus datos</h1>   
+
+            <form method="POST" action="/register">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" id="name" />
+
+                <label for="lastName">Apellido</label>
+                <input type="text" name="lastName" id="lastName" />
+
+                <label for="citizenCardId">Número de cédula</label>
+                <input type="text" name="citizenCardId" id="citizenCardId" />
+
+                <label for="email">E-mail</label>
+                <input type="text" name="email" id="email" />
+
+                <label for="phoneNumber">Número de celular</label>
+                <input type="text" name="phoneNumber" id="phoneNumber" />
+
+                <label for="alternativePhoneNumber">Número de telefono fijo</label>
+                <input type="text" name="alternativePhoneNumber" id="alternativePhoneNumber" />
+
+                <label for="password">Clave</label>
+                <input type="text" name="password" id="password" />
+
+                <button>Crear Cuenta</button>
+            </form>
+        {{>footer}}
+    </body>
+    
+</html>

@@ -2,12 +2,24 @@
     <a href="/">
         <img class="logo" src="/img/tuinmueblelogo.jpg">
     </a>
-    <h1>{{title}}</h1>
-    <a href="/inmobiliaria">Inmobiliaria</a>
-    <a href="/propietario">Propietario</a>
-    <a href="/arrendatario">Arrendatario</a>
-    <a href="/inmuebles">Inmuebles</a>
-  
-    
-
+    <div class="nav-bar">
+        {{#if currentUser}}
+            <div class="primary-Navbar">
+                <a href="/users/miperfil">{{currentUser.name}} {{currentUser.lastName}}</a>
+                <a href="/inmuebles">Inmuebles</a> 
+                <a href="/inmobiliaria">Inmobiliaria</a> 
+                <a href="/propietario">Propietario</a>
+                <a href="/arrendatario">Arrendatario</a>
+                <a href="/users/chat">Chat</a>
+                <a href="/users/logout">Salir</a>
+                {{!-- <a href="/users/logoutAll">Cerrar sesión en todos los dispositivos</a> --}}
+            </div>
+        {{else}}
+            <div class="secondary-Navbar">
+                <a href="/inmuebles">Inmuebles</a> 
+                <a href="/register">Crea tu cuenta</a> 
+                <a href="/users/login">Ingresa</a> 
+            </div> 
+        {{/if}}     
+    </div>
 </header>

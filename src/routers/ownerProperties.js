@@ -3,6 +3,17 @@ const Property = require('../models/property')
 const auth = require('../middleware/auth')
 const router = express.Router()
 
+const hbs = require('hbs')
+const path = require('path')
+const viewsPath = path.join(__dirname, '../templates/views')
+const partialsPath = path.join(__dirname, '../templates/partials')
+const app = express()
+
+app.set('view engine', 'hbs')
+app.set('views', viewsPath)
+hbs.registerPartials(partialsPath)
+
+
 router.get('/inmuebles', auth, async (req, res) => {
    
     const match = {}
@@ -52,7 +63,12 @@ router.get('/propietario/inmuebles', auth, async (req, res) => {
 
     try {
         await req.user.populate('properties').execPopulate()
-        res.send(req.user.properties)
+        
+        res.render('ownerProperties', {
+             ownerProperties: await req.user.properties[0]
+            
+        })
+      
     } catch (e) {
         res.status(500).send(e)
     }
@@ -82,7 +98,7 @@ router.post('/propietario/inmueble', auth, async (req, res) => {
 
     try {
         await propertyData.save()
-        res.status(201).send(propertyData)
+        res.status(201).render('ownerProperties')
 
     } catch (e) {
         res.status(400).send(e)

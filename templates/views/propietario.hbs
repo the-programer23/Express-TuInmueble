@@ -5,35 +5,36 @@
     <head>
         <title>Propietario</title>
         <link rel="stylesheet" href="/css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet" type="text/css">
     </head>
 
     <body>
         <div class="main-content">
             {{>header}}
             <h1>Propietario</h1>
-            <a href="/propietario/profile">Mis Datos</a>
+            <a href="/propietario/inmuebles">Mis inmuebles</a>
             <div class="addPropertyForm">
                 <h3>Agregar Inmueble</h3>
-                <form>
-                    <p>Tipo de inmueble:</p>
-                    <select name="realStateType">
-                        <option value="aparment">Apartamento</option>
-                        <option value="house">Casa</option>
-                        <option value="oneBedRoomAparment">Apartaestudio</option>
-                        <option value="store">Local</option>
-                        <option value="countryHouse">Cabaña</option>
-                        <option value="storageArea">Deposito</option>
+                <form method="POST" action="/propietario/inmueble">
+                    <label>Tipo de inmueble:</label>
+                    <select name="realStateType" id="realStateType">
+                        <option value="Apartamento">Apartamento</option>
+                        <option value="Casa">Casa</option>
+                        <option value="Apartaestudio">Apartaestudio</option>
+                        <option value="Local">Local</option>
+                        <option value="Cabaña">Cabaña</option>
+                        <option value="Deposito">Deposito</option>
                     </select>
-                    <p>Dirección del inmueble</p>
-                    <input type="text">
-                    <p>Ciudad</p>
-                    <input type="text">
-                    <p>País</p>
-                    <input type="text">
-                    <p>Valor mensual del arriendo</p>
-                    <input type="number">
+                    <label>Dirección del inmueble</label>
+                    <input type="text" name="address" id="address">
+                    <label>Ciudad</label>
+                    <input type="text" name="city" id="city">
+                    <label>País</label>
+                    <input type="text" name="country" id="country">
+                    <label>Valor mensual del arriendo</label>
+                    <input type="number" name="rentCost" id="rentCost">
                     <button>Agregar fotos</button>
-                    <button>agregar</button>
+                    <button>Crear Inmueble</button>
                 </form>  
             </div>  
         </div>

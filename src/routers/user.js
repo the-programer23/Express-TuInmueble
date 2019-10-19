@@ -3,37 +3,95 @@ const User = require('../models/user')
 const sharp = require('sharp')
 const auth = require('../middleware/auth')
 const multer = require('multer')
+const cookieParser = require('cookie-parser')
+const hbs = require('hbs')
+const jwt = require('jsonwebtoken')
 const { sendWelcomeEmail, cancelationEmail } = require('../emails/account')
 const router = express.Router()
+const path = require('path')
+const viewsPath = path.join(__dirname, '../templates/views')
+const partialsPath = path.join(__dirname, '../templates/partials')
+const app = express()
 
-router.get('/users/miperfil', auth , async (req, res) => {
-    res.send(req.user)
+app.set('view engine', 'hbs')
+app.set('views', viewsPath)
+hbs.registerPartials(partialsPath)
+
+// const bodyParser = require('body-parser')
+
+
+router.use(express.urlencoded({ extended: true }))
+router.use(cookieParser())
+
+router.get('/', async (req, res) => {
+
+    try{
+        const token = req.cookies['auth_token']
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        const user = await User.findOne({_id: decoded._id, 'tokens.token': token})
+        res.render('index', {
+            currentUser: user
+        })
+    }catch {
+        res.render('index')
+    }
+  
 })
 
-router.post('/users', async (req, res) => {
-    const user = new User(req.body)
 
+router.get('/users/miperfil', auth , async (req, res) => {
+    // res.send(req.user)
+    res.render('userProfile', {
+        currentUser: req.user
+    })
+})
+
+router.get('/users/chat', auth , (req, res) => {
+    res.render('chat', {
+        currentUser: req.user
+    })
+})
+
+router.get('/register', (req, res) => {
+    res.render('register') 
+})
+
+router.post('/register', async (req, res) => {
+
+    const user = new User(req.body)
+      
     try {
         await user.save()
         sendWelcomeEmail(user.email, user.name, user.lastName)
         const token = await user.generateAuthToken()
-        res.status(201).send({ user, token})
+        res.cookie('auth_token', token)
+        // res.sendFile(path.resolve(__dirname, '../../templates/', 'views', 'successfulRegister.hbs'))
+        // res.status(201).send({ user, token})
+        res.render('successfulRegister')
     } catch (e) {
         res.status(400).send(e)
     }
+})
+
+router.get('/users/login', (req, res) => {
+    res.render('login')
 })
 
 router.post('/users/login', async (req, res) => {
     try{
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
-        res.send({ user, token })
+        res.cookie('auth_token', token)
+        // res.sendFile(path.resolve(__dirname, '../../templates/', 'views', 'index.hbs'))
+        // res.send({ user, token })
+        res.redirect('/')
+        
     }catch(e) {
         res.status(400).send()
     }
 })
 
-router.post('/users/logout', auth , async (req, res) => {
+router.get('/users/logout', auth , async (req, res) => {
     
     try{
         req.user.tokens = req.user.tokens.filter((token) => {
@@ -42,17 +100,17 @@ router.post('/users/logout', auth , async (req, res) => {
         
         await req.user.save()
 
-        res.send()
+        res.redirect('/')
     }catch(e){
         res.status(500).send()
     }
 })
 
-router.post('/users/logoutAll', auth, async (req, res) => {
+router.get('/users/logoutAll', auth, async (req, res) => {
     try{
         req.user.tokens = []
         await req.user.save()
-        res.send()
+        res.redirect('/')
     }catch(e){
         res.status(500).send()
     }

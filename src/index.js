@@ -1,38 +1,35 @@
-const express = require('express')
-const hbs = require('hbs')
-const path = require('path')
-const userRouter = require('./routers/user')
-const ownerPropertiesRouter = require('./routers/ownerProperties')
-require('./db/mongoose')
-
-const app = express()
+const app = require('./app')
 const port = process.env.PORT 
+const http = require('http')
+const socketio = require('socket.io')
+const { generateMessage, generateLocationMessage } = require('./utils/messages')
 
-const publicDirectoryPath = path.join(__dirname, '../public')
-const viewsPath = path.join(__dirname, '../templates/views')
-const partialsPath = path.join(__dirname, '../templates/partials')
+const server = http.createServer(app)
+const io = socketio(server) 
 
-app.set('view engine', 'hbs')
-app.set('views', viewsPath)
-hbs.registerPartials(partialsPath)
+io.on('connection', (socket) => {
+    console.log('new webSocket connection')
 
-app.use(express.static(publicDirectoryPath))
-app.use(express.json())
-app.use(userRouter)
-app.use(ownerPropertiesRouter)
+    socket.emit('message', generateMessage('Biendenid@ al chat de TuInmueble'))
+    socket.broadcast.emit('message', generateMessage('Un nuevo usuario se a unido a la sala de chat'))
 
-app.get('/arrendatario', (req, res) => {
-    res.render('arrendatario')
+    socket.on('sendMessage', (message, callback) => {
+        io.emit('message', generateMessage(message))
+        callback('Enviado!')
+    })
+
+    socket.on('sendLocation', (location, callback) => {
+        io.emit('locationMessage', generateLocationMessage(`http://google.com/maps?q=${location.latitude},${location.longitude}`))
+        callback()
+    })
+
+
+    socket.on('disconnect', () => {
+        io.emit('message', generateMessage('Un usuario ha salido de la sala de chat'))
+    })
+  
 })
 
-app.get('/inmobiliaria', (req, res) => {
-    res.render('inmobiliaria')
-})
-
-app.get('/propietario', (req, res) => {
-    res.render('propietario')
-})
-
-app.listen(port, () => {
+server.listen(port, () => {
     console.log('Server is up on port ' + port)
 })

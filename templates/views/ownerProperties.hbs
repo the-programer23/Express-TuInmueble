@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Propietario</title>
+         <link rel="stylesheet" href="/css/styles.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet" type="text/css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    </head>
+
+    <body>
+        <div class="main-content">
+            {{>header}}
+            <div class="ownerPropertoesContainer">
+                <h1>Mis propiedades</h1>
+                <span>{{ownerProperties.realStateType}}</span>
+                <div>Dirección</div>
+                <span>{{ownerProperties.address}}</span>
+                <div>Ciudad</div>
+                <span>{{ownerProperties.city}}</span>
+                <div>País</div>
+                <span>{{ownerProperties.country}}</span>
+                <div>Valor del renta</div>
+                <span>{{ownerProperties.rentCost}}</span>
+            </div>
+            
+
+            {{>footer}}
+        </dir>
+    </body>
+    
+</html>

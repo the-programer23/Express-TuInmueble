@@ -34,9 +34,9 @@ app.get('/inmobiliaria', auth , (req, res) => {
     })
 })
 
-app.get('/propietario', auth , (req, res) => {
+app.get('/propietario', auth , async (req, res) => {
     res.render('propietario', {
-        currentUser: req.user
+        currentUser: await req.user
     })
 })
 

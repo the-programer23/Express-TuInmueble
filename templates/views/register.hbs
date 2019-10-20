@@ -12,7 +12,17 @@
     </head>
 
     <body>
-        {{>header}}
+        <header>
+            <nav>
+                <a href="/">
+                    <img class="logo" src="/img/tuinmueblelogo.jpg">
+                </a>
+                <ul class="header-secondary-navbar">
+                    <li><a href="/register">Ingresa</a></li> 
+                </ul>   
+            </nav>  
+        </header>
+        <div class="main-content">
           <h1>Completa tus datos</h1>   
 
             <form method="POST" action="/register">
@@ -36,9 +46,11 @@
 
                 <label for="password">Clave</label>
                 <input type="text" name="password" id="password" />
-
+                <br>
+                <br>
                 <button>Crear Cuenta</button>
             </form>
+        </div>    
         {{>footer}}
     </body>
     

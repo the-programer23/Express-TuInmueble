@@ -11,9 +11,36 @@
     </head>
 
     <body>
-        {{>header}}
-        <img src="/img/novena1.jpg" alt="indexBackground" class="indexBackgroundImg">  
-        {{>footer}}   
+        <header class="index-header">
+            <nav>
+                <a href="/">
+                    <img class="logo" src="/img/tuinmueblelogo.jpg">
+                </a>
+                    {{#if currentUser}}
+                        <ul class="index-primary-navbar">
+                            <li><a href="/users/miperfil">{{currentUser.name}} {{currentUser.lastName}}</a></li>
+                            <li><a href="/inmuebles">Inmuebles</a></li>
+                            <li><a href="/inmobiliaria">Inmobiliaria</a> </li>
+                            <li><a href="/propietario">Propietario</a></li>
+                            <li><a href="/arrendatario">Arrendatario</a></li>
+                            <li><a href="/users/chat">Chat</a></li>
+                            <li><a href="/users/logout">Salir</a></li>
+                            {{!-- <a href="/users/logoutAll">Cerrar sesión en todos los dispositivos</a> --}}
+                        </ul>
+                    {{else}}
+                        <ul class="index-secondary-navbar">
+                            <li><a href="#" class="btn-index btn-index-one">Publica tu inmueble</a></li><br>
+                            <li><a href="/inmuebles" class="btn-index btn-index-one">Busca inmuebles</a></li><br>
+                            <li><a href="/register" class="btn-index btn-index-two" >Crea tu cuenta</a></li><br>
+                            <li><a href="/users/login" class="btn-index btn-index-two">Ingresa</a></li>
+                        </ul>   
+                    {{/if}}     
+            </nav>
+
+        </header>
+        
+        
+        
     </body>
     
 </html>

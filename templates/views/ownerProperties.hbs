@@ -12,24 +12,22 @@
     </head>
 
     <body>
-        <div class="main-content">
-            {{>header}}
-            <div class="ownerPropertoesContainer">
-                <h1>Mis propiedades</h1>
-                <span>{{ownerProperties.realStateType}}</span>
-                <div>Dirección</div>
-                <span>{{ownerProperties.address}}</span>
-                <div>Ciudad</div>
-                <span>{{ownerProperties.city}}</span>
-                <div>País</div>
-                <span>{{ownerProperties.country}}</span>
-                <div>Valor del renta</div>
-                <span>{{ownerProperties.rentCost}}</span>
-            </div>
-            
-
-            {{>footer}}
-        </dir>
+        {{>header}}
+            <div class="main-content">
+                <div class="ownerPropertoesContainer">
+                    <h1>Tus inmuebles</h1>
+                    <span>{{ownerProperties.realStateType}}</span>
+                    <div>Dirección</div>
+                    <span>{{ownerProperties.address}}</span>
+                    <div>Ciudad</div>
+                    <span>{{ownerProperties.city}}</span>
+                    <div>País</div>
+                    <span>{{ownerProperties.country}}</span>
+                    <div>Valor del renta</div>
+                    <span>{{ownerProperties.rentCost}}</span>
+                </div>
+            </dir>
+         {{>footer}}
     </body>
     
 </html>

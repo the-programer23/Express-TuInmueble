@@ -9,30 +9,29 @@
     </head>
 
     <body>
-        <div class="main-content">
-            {{>header}}
-            <h1>Arrendatario</h1>
-            <a href="/arrendatario/profile">Mis Datos</a>
-            <h2>Inmuebles tomados en arriendo</h2>
-            <div class="propertyData">
-                <h4>Id del inmueble: </h4> 
-                <p>property id goes here (from database)</p> 
-                <h4>Tipo de inmueble: </h4>
-                <p>Property type goes here (from database)</p>
-                <h4>Dirección: </h4>
-                <p>property address goes here (from database)</p>
-                <h4>Ciudad: </h4>
-                <p>Property city goes here (from database) </p>
-                <h4>Pais: </h4>
-                <p>Propety country goes here (from database) </p>
-                <h4>Valor del arriendo: </h4>
-                <p>property rent cost goes here  (from database)</p>
-                <button>Ver contrato</button>
-                <button>Ceder</button>
-                <button>Dejar</button>
-            </div>           
-        </div>
-        
+        {{>header}}
+            <div class="main-content">
+                <h1>Arrendatario</h1>
+                <a href="/arrendatario/profile">Mis Datos</a>
+                <h2>Inmuebles tomados en arriendo</h2>
+                <div class="propertyData">
+                    <h4>Id del inmueble: </h4> 
+                    <p>property id goes here (from database)</p> 
+                    <h4>Tipo de inmueble: </h4>
+                    <p>Property type goes here (from database)</p>
+                    <h4>Dirección: </h4>
+                    <p>property address goes here (from database)</p>
+                    <h4>Ciudad: </h4>
+                    <p>Property city goes here (from database) </p>
+                    <h4>Pais: </h4>
+                    <p>Propety country goes here (from database) </p>
+                    <h4>Valor del arriendo: </h4>
+                    <p>property rent cost goes here  (from database)</p>
+                    <button>Ver contrato</button>
+                    <button>Ceder</button>
+                    <button>Dejar</button>
+                </div>           
+            </div>
         {{>footer}}
     </body>
     

@@ -12,8 +12,17 @@
     </head>
 
     <body>
-        {{>header}}
-            <div class="loginContainer">
+        <header>
+            <nav>
+                <a href="/">
+                    <img class="logo" src="/img/tuinmueblelogo.jpg">
+                </a>
+                <ul class="header-secondary-navbar">
+                    <li><a href="/register">Crea tu cuenta</a></li> 
+                </ul>   
+            </nav>  
+        </header>
+            <div class="main-content">
                 <h1>Ingresa tu e-mail y tu clave</h1>   
                 <form method="POST" action="/users/login">
                     <label for="email">E-mail</label>

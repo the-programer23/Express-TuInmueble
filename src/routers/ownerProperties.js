@@ -14,7 +14,7 @@ app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
 
-router.get('/inmuebles', auth, async (req, res) => {
+router.get('/inmuebles', async (req, res) => {
    
     const match = {}
     const sort = {}
@@ -65,7 +65,8 @@ router.get('/propietario/inmuebles', auth, async (req, res) => {
         await req.user.populate('properties').execPopulate()
         
         res.render('ownerProperties', {
-             ownerProperties: await req.user.properties[0]
+             ownerProperties: await req.user.properties[0],
+             currentUser: await req.user
             
         })
       

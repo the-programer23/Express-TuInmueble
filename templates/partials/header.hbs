@@ -1,25 +1,26 @@
 <header>
-    <a href="/">
-        <img class="logo" src="/img/tuinmueblelogo.jpg">
-    </a>
-    <div class="nav-bar">
+    <nav>
+        <a href="/">
+            <img class="logo" src="/img/tuinmueblelogo.jpg">
+        </a>
         {{#if currentUser}}
-            <div class="primary-Navbar">
-                <a href="/users/miperfil">{{currentUser.name}} {{currentUser.lastName}}</a>
-                <a href="/inmuebles">Inmuebles</a> 
-                <a href="/inmobiliaria">Inmobiliaria</a> 
-                <a href="/propietario">Propietario</a>
-                <a href="/arrendatario">Arrendatario</a>
-                <a href="/users/chat">Chat</a>
-                <a href="/users/logout">Salir</a>
+            <ul class="header-primary-navbar">
+                <li><a href="/users/miperfil">{{currentUser.name}} {{currentUser.lastName}}</a></li>
+                <li><a href="/inmuebles">Inmuebles</a> </li>
+                <li><a href="/inmobiliaria">Inmobiliaria</a></li> 
+                <li><a href="/propietario">Propietario</a></li>
+                <li><a href="/arrendatario">Arrendatario</a></li>
+                <li><a href="/users/chat">Chat</a></li>
+                <li><a href="/users/logout">Salir</a></li>
                 {{!-- <a href="/users/logoutAll">Cerrar sesión en todos los dispositivos</a> --}}
-            </div>
+            </ul>
         {{else}}
-            <div class="secondary-Navbar">
-                <a href="/inmuebles">Inmuebles</a> 
-                <a href="/register">Crea tu cuenta</a> 
-                <a href="/users/login">Ingresa</a> 
-            </div> 
+            <ul class="header-secondary-navbar">
+                <li><a href="#">Publica tu inmueble</a></li><br>
+                <li><a href="/inmuebles">Busca inmuebles</a></li>
+                <li><a href="/register">Crea tu cuenta</a></li> 
+                <li><a href="/users/login">Ingresa</a> </li>
+            </ul> 
         {{/if}}     
-    </div>
+    </nav>  
 </header>

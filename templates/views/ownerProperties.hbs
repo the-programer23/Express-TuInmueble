@@ -14,20 +14,29 @@
     <body>
         {{>header}}
             <div class="main-content">
-                <div class="ownerPropertoesContainer">
-                    <h1>Tus inmuebles</h1>
-                    <span>{{ownerProperties.realStateType}}</span>
-                    <div>Dirección</div>
+                <h1>Propietario</h1>
+                <div class="propietario-navbar">
+                    <ion-icon name="home"></ion-icon>
+                    <a href="/propietario/inmuebles">Tus inmuebles</a>
+                    <a href="/propietario/escogerInmobiliaria">Escoger inmobiliaria</a>
+                    <a href="/propietario/agregarInmueble">Agregar inmueble</a>
+                </div> 
+                <h2>Tus inmuebles</h1>
+                <div class="ownerPropertiesContainer">
+                    <span class="title">{{ownerProperties.realStateType}}</span>
+                    <label>Dirección</label>
                     <span>{{ownerProperties.address}}</span>
-                    <div>Ciudad</div>
+                    <label>Ciudad</label>
                     <span>{{ownerProperties.city}}</span>
-                    <div>País</div>
+                    <label>País</label>
                     <span>{{ownerProperties.country}}</span>
-                    <div>Valor del renta</div>
-                    <span>{{ownerProperties.rentCost}}</span>
+                    <label>Valor de la renta</label>
+                    <span>{{ownerProperties.rentCost}}</span> <br>
+                    <button>Vincular a una Inmobiliaria</button>
                 </div>
             </dir>
          {{>footer}}
+         <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     </body>
     
 </html>

@@ -24,32 +24,33 @@
         </header>
         <div class="main-content">
           <h1>Completa tus datos</h1>   
+            <div class="main-content-body">
+                <form method="POST" action="/register">
+                    <label for="name">Nombre</label>
+                    <input type="text" name="name" id="name" />
 
-            <form method="POST" action="/register">
-                <label for="name">Nombre</label>
-                <input type="text" name="name" id="name" />
+                    <label for="lastName">Apellido</label>
+                    <input type="text" name="lastName" id="lastName" />
 
-                <label for="lastName">Apellido</label>
-                <input type="text" name="lastName" id="lastName" />
+                    <label for="citizenCardId">Número de cédula</label>
+                    <input type="text" name="citizenCardId" id="citizenCardId" />
 
-                <label for="citizenCardId">Número de cédula</label>
-                <input type="text" name="citizenCardId" id="citizenCardId" />
+                    <label for="email">E-mail</label>
+                    <input type="text" name="email" id="email" />
 
-                <label for="email">E-mail</label>
-                <input type="text" name="email" id="email" />
+                    <label for="phoneNumber">Número de celular</label>
+                    <input type="text" name="phoneNumber" id="phoneNumber" />
 
-                <label for="phoneNumber">Número de celular</label>
-                <input type="text" name="phoneNumber" id="phoneNumber" />
+                    <label for="landlineNumber">Número de telefono fijo</label>
+                    <input type="text" name="alternativePhoneNumber" id="alternativePhoneNumber" />
 
-                <label for="alternativePhoneNumber">Número de telefono fijo</label>
-                <input type="text" name="alternativePhoneNumber" id="alternativePhoneNumber" />
-
-                <label for="password">Clave</label>
-                <input type="text" name="password" id="password" />
-                <br>
-                <br>
-                <button>Crear Cuenta</button>
-            </form>
+                    <label for="password">Clave</label>
+                    <input type="text" name="password" id="password" />
+                    <br>
+                    <br>
+                    <button>Crear Cuenta</button>
+                </form>
+            </div>
         </div>    
         {{>footer}}
     </body>

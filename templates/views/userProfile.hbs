@@ -14,18 +14,24 @@
     <body>
         {{>header}}
             <div class="main-content">
-               <div>Nombre(s)</div>
-               <span>{{currentUser.name}}</span>
-               <div>Apellido(s)</div>
-               <span>{{currentUser.lastName}}</span>
-               <div>Número de identificación de ciudadania</div>
-               <span>{{currentUser.citizenCardId}}</span>
-               <div>E-mail</div>
-               <span>{{currentUser.email}}</span>
-               <div>Número de celular</div>
-               <span>{{currentUser.phoneNumber}}</span>
-               <div>Número de celular alternativo</div>
-               <span>{{currentUser.alternativePhoneNumber}}</span>
+                <h1>Tus datos</h1>
+                <div class="main-content-body">
+                    <div class="user-profile-container">
+                        <label>Nombre(s)</label>
+                        <span>{{currentUser.name}}</span>
+                        <label>Apellido(s)</label>  
+                        <span>{{currentUser.lastName}}</span>
+                        <label>Número de cédula de ciudadania</label>
+                        <span>C.C: {{currentUser.citizenCardId}}</span>
+                        <label>E-mail</label>
+                        <span>{{currentUser.email}}</span>
+                        <label>Número de celular</label>
+                        <span>{{currentUser.phoneNumber}}</span>
+                        <label>Número de celular alternativo</label>
+                        <span>{{currentUser.alternativePhoneNumber}}</span>
+                        <label>Número de teléfono fijo (opcional)</label>
+                    </div> 
+                </div>
             </div>
         {{>footer}}
     </body>

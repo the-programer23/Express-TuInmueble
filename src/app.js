@@ -21,9 +21,8 @@ app.use(express.json())
 app.use(userRouter)
 app.use(ownerPropertiesRouter)
 
-
-app.get('/arrendatario', auth , (req, res) => {
-    res.render('arrendatario', {
+app.get('/inmuebles', auth, (req, res) => {
+    res.render('inmuebles', {
         currentUser: req.user
     })
 })
@@ -34,9 +33,16 @@ app.get('/inmobiliaria', auth , (req, res) => {
     })
 })
 
-app.get('/propietario', auth , async (req, res) => {
+app.get('/arrendatario', auth , (req, res) => {
+    res.render('arrendatario', {
+        currentUser: req.user
+    })
+})
+
+
+app.get('/propietario', auth , (req, res) => {
     res.render('propietario', {
-        currentUser: await req.user
+        currentUser: req.user
     })
 })
 

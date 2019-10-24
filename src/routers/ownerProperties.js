@@ -14,7 +14,7 @@ app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
 
-router.get('/inmuebles', async (req, res) => {
+router.get('/inmuebles', auth, async (req, res) => {
    
     const match = {}
     const sort = {}
@@ -52,7 +52,10 @@ router.get('/inmuebles', async (req, res) => {
                 sort
             }
         }).execPopulate()
-        res.send(req.user.properties)
+        // res.send(req.user.properties)
+        res.render('inmuebles', {
+            currentUser: req.user
+        })
     } catch (e) {
         res.status(500).send(e)
     }
@@ -89,8 +92,13 @@ router.get('/propietario/inmuebles/:id', auth, async (req, res) => {
     }
 })
 
+router.get('/propietario/agregarInmueble', auth, (req, res) => {
+    res.render('addProperty', {
+        currentUser: req.user
+    })
+})
 
-router.post('/propietario/inmueble', auth, async (req, res) => {
+router.post('/propietario/agregarInmueble', auth, async (req, res) => {
     
     const propertyData = new Property({
         ...req.body,

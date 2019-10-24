@@ -7,9 +7,16 @@
 /* ----------------------------------------- */
 
 .main-content {
-    padding-top: 120px;
+    padding: 60px 20px 0 20px;
 }
 
+.main-content h1 {
+    text-align: center;
+}
+
+.main-content-body {
+    margin-top: 20px;
+}
 /* ----------------------------------------- */
 /* Basic setup */
 /* ----------------------------------------- */
@@ -29,30 +36,11 @@ html {
     text-rendering: optimizeLegibility
 }
 
-/* ----------------------------------------- */
-/* Header */
-/* ----------------------------------------- */
-
-header {
-    position: relative;
-}
-
-.propertyData{
-    border: 1px solid gray
-}
-
-/* ----------------------------------------- */
-/* Propietario.hbs */
-/* ----------------------------------------- */
-
-.addPropertyForm{
-    border: 1px solid gray
-}
-
-/* ---------------- */
-
 input {
-    font-size: 14px;
+    font-size: 70%;
+    border: 1px solid #eeeeee;
+    padding: 12px;
+    outline: none;
 }
 
 body {
@@ -62,16 +50,10 @@ body {
 
 label {
     display: block;
-    font-size: 14px;
-    margin-bottom: 8px;
+    font-size: 70%;
     color: #777;
 }
 
-input {
-    border: 1px solid #eeeeee;
-    padding: 12px;
-    outline: none;
-}
 
 button {
     cursor: pointer;
@@ -79,7 +61,7 @@ button {
     background: #27ae60;
     border: none;
     color: white;
-    font-size: 16px;
+    font-size: 80%;
     transition: background .3s ease;
 }
 
@@ -91,6 +73,92 @@ button:disabled {
     cursor: default;
     background: #c0392b;
 }
+
+/* ----------------------------------------- */
+/* Reusable components */
+/* ----------------------------------------- */
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------- */
+/* Header */
+/* ----------------------------------------- */
+
+header {
+    position: relative;
+}
+
+
+.logo {
+    float: left;
+    margin-top: 20px;
+}
+
+.header-primary-navbar {
+    list-style: none;
+    padding: 25px 20px 0 0;
+}
+
+.header-primary-navbar li {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.header-primary-navbar li a:link,
+.header-primary-navbar li a:visited{
+    padding: 6px 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    float: left;
+    color: #2d3436;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.header-primary-navbar li a:hover,
+.header-primary-navbar li a:active{
+    border-bottom: 2px solid #27ae60;
+}
+
+
+.header-secondary-navbar {
+    list-style: none;
+    float: right;
+    margin: 12px 30px 0 0;
+}
+
+.header-secondary-navbar li {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.header-secondary-navbar li a:link,
+.header-secondary-navbar li a:visited {
+    padding: 6px 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #2d3436;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.header-secondary-navbar li a:hover,
+.header-secondary-navbar li a:active {
+    border-bottom: 2px solid #27ae60;
+}
+
+
+/* ----------------------------------------- */
+/* Footer */
+/* ----------------------------------------- */
+footer {
+    margin-top: 20px;
+}
+
 
 /* ----- Chat ----- */
 /* ----- Join Page Styles ----- */
@@ -157,13 +225,13 @@ button:disabled {
 
 .message__name {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 70%;
     margin-right: 8px;
 }
 
 .message__meta {
     color: #777;
-    font-size: 14px;
+    font-size: 70%;
 }
 
 .message a {
@@ -194,21 +262,21 @@ button:disabled {
 }
 
 .compose button {
-    font-size: 14px;
+    font-size: 70%;
 }
 
 /* Chat Sidebar Styles */
 
 .room-title {
     font-weight: 400;
-    font-size: 22px;
+    font-size: 110%;
     background: #2c2f3a;
     padding: 24px;   
 }
 
 .list-title {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 90%;
     margin-bottom: 4px;
     padding: 12px 24px 0 24px;
 }
@@ -220,66 +288,12 @@ button:disabled {
     padding: 12px 24px 0 24px;
 }
 
-/* ----- Partial Header Navigation Bar  ----- */
 
-.logo {
-    float: left;
-    margin-top: 20px;
-}
+/* ----------------------------------------- */
+/* index.hbs */
+/* ----------------------------------------- */
 
-.header-primary-navbar {
-    list-style: none;
-    float: right;
-    padding: 15px 25px 0 0;
-}
-
-.header-primary-navbar li {
-    display: inline-block;
-    margin-left: 30px;
-}
-
-.header-primary-navbar li a:link,
-.header-primary-navbar li a:visited{
-    padding: 6px 0;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #2d3436;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom 0.2s;
-}
-
-.header-primary-navbar li a:hover,
-.header-primary-navbar li a:active {
-    border-bottom: 2px solid #27ae60;
-}
-
-.header-secondary-navbar {
-    list-style: none;
-    float: right;
-    margin: 12px 30px 0 0;
-}
-
-.header-secondary-navbar li {
-    display: inline-block;
-    margin-left: 30px;
-}
-
-.header-secondary-navbar li a:link,
-.header-secondary-navbar li a:visited {
-    padding: 6px 0;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #2d3436;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom 0.2s;
-}
-
-.header-secondary-navbar li a:hover,
-.header-secondary-navbar li a:active {
-    border-bottom: 2px solid #27ae60;
-}
-
-/* ----- Index ----- */
+/*  index header */
 
 .index-header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/novena1.jpg);
@@ -299,7 +313,7 @@ button:disabled {
     color: #fff;
     text-decoration: none;
     margin-right: 15px;
-    float: right;
+    float: left;
     font-size: 90%;
     text-transform: uppercase;
     border-bottom: 2px solid transparent;
@@ -360,4 +374,113 @@ button:disabled {
 .btn-index-two:hover,
 .btn-index-two:Active {
     border: 1px solid #1e8449;
+}
+
+/* ----------------------------------------- */
+/* arrendatario.hbs */
+/* ----------------------------------------- */
+.propertyData{
+    border: 1px solid #f0f1f4;
+    background-color: #f8f9fa;
+    width: 40%;
+    padding: 15px;
+}
+
+.propertyData label {
+    font-size: 100%;
+    font-weight: 400;
+}
+
+/* ----------------------------------------- */
+/* userProfile.hbs */
+/* ----------------------------------------- */
+
+
+.user-profile-container {
+    border: 1px solid #f0f1f4;
+    background-color: #f8f9fa;
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    padding: 15px;
+}
+
+.user-profile-container label {
+    font-weight: 400;
+    font-size: 100%;
+    margin-top: 10px;
+} 
+
+
+
+
+/* ----------------------------------------- */
+/* Propietario.hbs */
+/* ----------------------------------------- */
+
+.propietario-navbar {
+    margin-bottom: 20px;
+}
+
+.propietario-navbar a:link,
+.propietario-navbar a:visited {
+    text-decoration: none;
+    margin-right: 20px;
+    letter-spacing: 1px;
+    color: #2d3436;
+    transition: border-bottom 0.2s;
+}
+
+.propietario-navbar a:hover,
+.propietario-navbar a:active {
+    border-bottom: 1px solid #27ae60;
+}
+
+/* ----------------------------------------- */
+/* addProperty.hbs */
+/* ----------------------------------------- */
+
+.addPropertyForm {
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #f0f1f4;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #f8f9fa;
+  
+}
+
+.addPropertyForm form {
+    margin-top: 10px;
+  
+}
+
+.rentCostInput {
+    width: 220px;
+}
+
+/* ----------------------------------------- */
+/* ownerProperties.hbs */
+/* ----------------------------------------- */
+
+.ownerPropertiesContainer {
+    border: 1px solid #f0f1f4;
+    width: 40%;
+    margin-top: 10px;
+    padding: 10px 10px 10px 10px;
+    background-color: #f8f9fa;
+}
+
+.ownerPropertiesContainer .title {
+    font-weight: 500;
+}
+
+.ownerPropertiesContainer label {
+    font-weight: 500;
+    font-size: 100%;
+    margin-top: 5px;
+}
+
+.ownerPropertiesContainer button {
+    margin-top: 10px;
 }

@@ -12,25 +12,27 @@
         {{>header}}
             <div class="main-content">
                 <h1>Arrendatario</h1>
-                <a href="/arrendatario/profile">Mis Datos</a>
-                <h2>Inmuebles tomados en arriendo</h2>
-                <div class="propertyData">
-                    <h4>Id del inmueble: </h4> 
-                    <p>property id goes here (from database)</p> 
-                    <h4>Tipo de inmueble: </h4>
-                    <p>Property type goes here (from database)</p>
-                    <h4>Dirección: </h4>
-                    <p>property address goes here (from database)</p>
-                    <h4>Ciudad: </h4>
-                    <p>Property city goes here (from database) </p>
-                    <h4>Pais: </h4>
-                    <p>Propety country goes here (from database) </p>
-                    <h4>Valor del arriendo: </h4>
-                    <p>property rent cost goes here  (from database)</p>
-                    <button>Ver contrato</button>
-                    <button>Ceder</button>
-                    <button>Dejar</button>
-                </div>           
+                <div class="main-content-body">
+                    <h2>Inmuebles Arrendados</h2>
+                    <div class="propertyData">
+                        <label>Id del inmueble: </label> 
+                        <p>property id goes here (from database)</p> 
+                        <label>Tipo de inmueble: </label>
+                        <p>Property type goes here (from database)</p>
+                        <label>Dirección: </label>
+                        <p>property address goes here (from database)</p>
+                        <label>Ciudad: </label>
+                        <p>Property city goes here (from database) </p>
+                        <label>Pais: </label>
+                        <p>Propety country goes here (from database) </p>
+                        <label>Valor del renta: </label>
+                        <p>property rent cost goes here  (from database)</p>
+                        <p>The main image should go here</p>
+                        <a href="/arrendatario/contrato"></a> Ver contrato
+                        <a href="/arrendatario/ceder">Ceder</a> 
+                        <a href="/arrendatario/entregar">Entragar</a> 
+                    </div>  
+                </div>        
             </div>
         {{>footer}}
     </body>

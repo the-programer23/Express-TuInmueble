@@ -23,7 +23,9 @@
                 </div> 
                 <h2>Tus inmuebles</h1>
                 <div class="ownerPropertiesContainer">
-                    <span class="title">{{ownerProperties.realStateType}}</span>
+                    <span class="title">{{realStateType}}</span>
+                    <label>Barrio</label>
+                    <span>{{ownerProperties.neighborhoodName}}</span>
                     <label>Dirección</label>
                     <span>{{ownerProperties.address}}</span>
                     <label>Ciudad</label>
@@ -34,7 +36,7 @@
                     <span>{{ownerProperties.rentCost}}</span> <br>
                     <button>Vincular a una Inmobiliaria</button>
                 </div>
-            </dir>
+            </div>
          {{>footer}}
          <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     </body>

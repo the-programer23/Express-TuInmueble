@@ -3,7 +3,8 @@
 <html>
 
     <head>
-        <title>Página Principal</title>
+        <meta charset="UTF-8" />
+        <title>Inmuebles</title>
         <link rel="stylesheet" href="../../public/vendors/css/normalize.css">
         <link rel="stylesheet" href="../../public/vendors/css/grid.css">
         <link rel="stylesheet" href="/css/styles.css" type="text/css">
@@ -14,6 +15,7 @@
         {{>header}}
             <div class="main-content">
                 <h1>Inmuebles</h1>
+                {%PROPERTY_CARDS%}
             </div>
         {{>footer}}   
     </body>

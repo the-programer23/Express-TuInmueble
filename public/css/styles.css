@@ -484,3 +484,14 @@ footer {
 .ownerPropertiesContainer button {
     margin-top: 10px;
 }
+
+/* ----------------------------------------- */
+/* propertyCards.hbs */
+/* ----------------------------------------- */
+
+.property_card {
+    background-color: #f8f9fa;
+    border: 1px solid #f0f1f4;
+    width: 40%;
+    display: inline-block;
+}

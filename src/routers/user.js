@@ -23,6 +23,7 @@ hbs.registerPartials(partialsPath)
 router.use(express.urlencoded({ extended: true }))
 router.use(cookieParser())
 
+
 router.get('/', async (req, res) => {
 
     try{
